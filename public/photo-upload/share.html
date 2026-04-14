@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Random Moments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Cormorant+SC:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="upload-core.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-text">
+      <div class="page-title">Photo Share</div>
+      <div class="divider"></div>
+      <p class="date-text"><em>friends that share remember</em></p>
+    </div>
+  </header>
+
+  <main>
+    <div id="upload-area">
+
+      <div class="drop-zone" id="drop-zone">
+        <input type="file" id="file-input" accept="image/*" multiple />
+        <span class="drop-icon">📷</span>
+        <h2>Share Your Photos</h2>
+        <p>drop photos here</p>
+        <div class="or-divider">· · · or · · ·</div>
+        <div style="display:flex; gap:10px; justify-content:center; position:relative; z-index:1;">
+          <button class="camera-btn" id="gallery-btn">Browse Gallery</button>
+          <button class="camera-btn" id="camera-btn-trigger">Take a Photo</button>
+        </div>
+        <input class="camera-input" type="file" id="camera-input" accept="image/*" capture="environment" />
+      </div>
+
+      <div id="preview-section">
+        <h3 id="preview-count">0 Photos Selected</h3>
+        <div id="preview-grid"></div>
+      </div>
+
+      <button id="upload-btn">Upload Photos</button>
+
+      <div id="progress-container">
+        <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+        <div id="progress-label">Uploading…</div>
+      </div>
+
+      <div id="error-banner">
+        Something went wrong. Please check your connection and try again.
+      </div>
+
+    </div>
+
+    <div id="success-screen">
+      <span class="heart-anim">💛</span>
+      <h2>Thank You</h2>
+      <p id="success-message"></p>
+      <button class="upload-more-btn" id="upload-more-btn">Upload More Photos</button>
+    </div>
+  </main>
+
+  <footer>Made with <span>♡</span> for a special day</footer>
+
+  <script>
+    window.UPLOAD_CONFIG = {
+      storagePrefix: 'shared',
+      successMessage: 'Your photos have been shared.<br>Thanks for capturing the moment!',
+      firebaseConfig: {
+        apiKey:            "AIzaSyCc4coOTiXl5B-WBrgfx8h0NZzHrVIJSvc",
+        authDomain:        "bellenger-wedding-photos.firebaseapp.com",
+        projectId:         "bellenger-wedding-photos",
+        storageBucket:     "bellenger-wedding-photos.firebasestorage.app",
+        messagingSenderId: "1043145696659",
+        appId:             "1:1043145696659:web:698b9ef17d636008da3466"
+      }
+    };
+  </script>
+  <script type="module" src="upload-core.js?v=2"></script>
+
+</body>
+</html>

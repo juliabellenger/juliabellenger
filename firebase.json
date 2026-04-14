@@ -1,0 +1,30 @@
+{
+  "hosting": {
+    "public": "out",
+    "cleanUrls": true,
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      ".github",
+      "*.md",
+      ".git",
+      "node_modules"
+    ],
+    "rewrites": [
+      {
+        "source": "/snippets/**",
+        "run": {
+          "serviceId": "snippets",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "/snippets",
+        "run": {
+          "serviceId": "snippets",
+          "region": "us-central1"
+        }
+      }
+    ]
+  }
+}
