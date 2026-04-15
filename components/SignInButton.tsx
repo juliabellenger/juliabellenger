@@ -22,7 +22,7 @@ export default function SignInButton() {
         </p>
         <button
           onClick={() => auth && signOut(auth)}
-          className="rounded-sm border border-gold/40 bg-transparent px-3 py-1.5 font-heading text-xs tracking-wider text-slate hover:bg-gold-faint transition-colors"
+          className="rounded-lg border border-gold/40 bg-transparent px-3 py-1.5 font-heading text-xs tracking-wider text-slate hover:bg-gold-faint transition-colors"
         >
           Sign Out
         </button>
@@ -36,7 +36,7 @@ export default function SignInButton() {
         const { auth, googleProvider } = getFirebase();
         if (auth && googleProvider) signInWithPopup(auth, googleProvider);
       }}
-      className="rounded-sm bg-slate px-6 py-3 font-heading text-sm tracking-[0.15em] text-cream-light hover:bg-slate-light transition-colors"
+      className="rounded-lg bg-slate px-6 py-3 font-heading text-sm tracking-[0.15em] text-cream-light hover:bg-slate-light transition-colors"
     >
       Sign in with Google
     </button>

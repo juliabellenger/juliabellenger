@@ -24,7 +24,7 @@ export default function Home() {
       <main className="flex flex-col gap-5 mb-10">
         <Link
           href="/photo-upload/wedding.html"
-          className="rounded-sm border-[1.5px] border-gold bg-cream-light p-8 hover:bg-gold-faint transition-colors group"
+          className="rounded-lg border-[1.5px] border-gold bg-cream-light p-8 hover:bg-gold-faint transition-colors group"
         >
           <div className="flex items-center gap-4">
             <span className="text-3xl">📷</span>
@@ -43,7 +43,7 @@ export default function Home() {
         {!loading && user && (
           <Link
             href="/snippets"
-            className="rounded-sm border-[1.5px] border-gold bg-cream-light p-8 hover:bg-gold-faint transition-colors group"
+            className="rounded-lg border-[1.5px] border-gold bg-cream-light p-8 hover:bg-gold-faint transition-colors group"
           >
             <div className="flex items-center gap-4">
               <span className="text-3xl">🪶</span>
