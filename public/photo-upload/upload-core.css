@@ -81,8 +81,10 @@ header {
 
 /* ─── Page QR ─── */
 .page-qr {
-  margin: 0 auto 28px;
+  margin: 24px auto 0;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .page-qr img {
