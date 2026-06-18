@@ -93,8 +93,7 @@ async function startUpload() {
   function updateProgress() {
     const pct = Math.round((done / total) * 100);
     document.getElementById('progress-bar').style.width = pct + '%';
-    document.getElementById('progress-label').textContent =
-      `Uploading ${done} of ${total} photo${total > 1 ? 's' : ''}…`;
+    document.getElementById('progress-label').textContent = 'Uploading photos…';
   }
 
   function markThumb(idx, icon) {
