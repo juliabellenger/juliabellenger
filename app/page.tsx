@@ -8,22 +8,24 @@ export default function Home() {
   const { user, loading } = useAuth();
 
   return (
-    <div className="flex-1 flex flex-col px-4 py-12">
-      {/* Header */}
-      <header className="text-center mb-10">
-        <h1 className="font-heading text-5xl tracking-[0.15em] text-slate">
-          Julia Bellenger
-        </h1>
-        <p className="font-script text-3xl text-gold mt-2">
-          a personal collection of tools
-        </p>
-        <div className="mt-5 mx-auto w-64 border-t border-gold/40" />
+    <div className="flex-1 flex flex-col items-center px-4 py-5">
+      {/* Header — sized to match the photo-share pages */}
+      <header className="w-full max-w-[640px] text-center">
+        <div className="px-10 pt-2 pb-7">
+          <h1 className="font-heading text-[clamp(36px,10vw,64px)] font-semibold leading-[1.05] tracking-[8px] text-slate">
+            Julia Bellenger
+          </h1>
+          <p className="font-script text-[clamp(28px,7vw,44px)] text-gold mt-1">
+            a personal collection of tools
+          </p>
+        </div>
+        <div className="w-full h-px bg-gold/70" />
       </header>
 
       {/* Photo Shares — always visible */}
-      <main className="flex flex-col gap-5 mb-10">
+      <main className="w-full max-w-[560px] flex flex-col gap-5 px-5 pt-5 pb-12">
         <Link href="/photo-upload/" className="block text-center group">
-          <h2 className="font-heading text-2xl tracking-[0.15em] text-slate group-hover:text-gold transition-colors">
+          <h2 className="font-heading text-[20px] tracking-[2px] font-normal text-slate group-hover:text-gold transition-colors">
             Photo Shares
           </h2>
         </Link>
@@ -96,15 +98,15 @@ export default function Home() {
         {!loading && user && (
           <Link
             href="/snippets"
-            className="rounded-lg border-[1.5px] border-gold bg-cream-light p-8 hover:bg-gold-faint transition-colors group"
+            className="rounded-xl border-[1.5px] border-gold bg-cream-light px-6 py-5 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:bg-gold-faint transition-colors group"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center gap-4">
               <span className="text-3xl">🪶</span>
-              <div>
-                <h2 className="font-heading text-xl tracking-[0.15em] text-slate group-hover:text-gold transition-colors">
+              <div className="text-center">
+                <h2 className="font-heading text-[22px] font-semibold tracking-[3px] text-slate group-hover:text-gold transition-colors">
                   Snippets
                 </h2>
-                <p className="font-script text-lg text-gold mt-0.5">
+                <p className="italic text-sm font-light text-slate-light mt-2">
                   save the moments forever
                 </p>
               </div>
@@ -115,7 +117,7 @@ export default function Home() {
 
       {/* Auth */}
       {!loading && !user && (
-        <div className="text-center mb-10">
+        <div className="w-full max-w-[560px] text-center mb-10">
           <p className="font-script text-lg text-gold mb-4">
             log in for additional fun
           </p>
@@ -123,15 +125,15 @@ export default function Home() {
         </div>
       )}
       {!loading && user && (
-        <div className="text-center mb-10">
+        <div className="w-full max-w-[560px] text-center mb-10">
           <SignInButton />
         </div>
       )}
 
       {/* Footer */}
       <footer className="mt-auto pt-12 pb-6 text-center">
-        <p className="font-script text-sm text-slate-light/40">
-          Made with &#9825; for special days
+        <p className="italic text-xs font-light text-[#b0a898]">
+          Made with <span className="text-gold">♡</span> for special days
         </p>
       </footer>
     </div>
