@@ -20,8 +20,12 @@ export default function Home() {
         <div className="mt-5 mx-auto w-64 border-t border-gold/40" />
       </header>
 
-      {/* Photo Uploads — always visible */}
+      {/* Photo Shares — always visible */}
       <main className="flex flex-col gap-5 mb-10">
+        <h2 className="font-heading text-2xl tracking-[0.15em] text-slate text-center">
+          Photo Shares
+        </h2>
+
         <Link
           href="/photo-upload/wedding.html"
           className="rounded-lg border-[1.5px] border-gold bg-cream-light p-8 hover:bg-gold-faint transition-colors group"
@@ -29,11 +33,28 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <span className="text-3xl">📷</span>
             <div>
-              <h2 className="font-heading text-xl tracking-[0.15em] text-slate group-hover:text-gold transition-colors">
-                Photo Uploads
-              </h2>
+              <h3 className="font-heading text-xl tracking-[0.15em] text-slate group-hover:text-gold transition-colors">
+                Julia &amp; Tom
+              </h3>
               <p className="font-script text-lg text-gold mt-0.5">
-                friends that share remember
+                Wedding Photos
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          href="/photo-upload/share.html"
+          className="rounded-lg border-[1.5px] border-gold bg-cream-light p-8 hover:bg-gold-faint transition-colors group"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-3xl">📷</span>
+            <div>
+              <h3 className="font-heading text-xl tracking-[0.15em] text-slate group-hover:text-gold transition-colors">
+                Photo Share
+              </h3>
+              <p className="font-script text-lg text-gold mt-0.5">
+                Shared Photos
               </p>
             </div>
           </div>
