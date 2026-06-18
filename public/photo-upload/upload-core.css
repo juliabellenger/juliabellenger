@@ -152,6 +152,69 @@ header {
   box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
+/* ─── Project Cards (hub page) ─── */
+.project-card {
+  background: var(--white);
+  border: 1.5px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.project-card + .project-card { margin-top: 20px; }
+
+.project-qr { width: 80px; height: 80px; flex-shrink: 0; }
+
+.project-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-name {
+  font-family: 'Cormorant SC', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--slate);
+}
+
+.project-meta {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--slate-light);
+  margin-top: 8px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Cormorant SC', serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 8px 14px;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--slate); color: var(--cream); border: 1px solid var(--slate); }
+.btn-primary:hover { background: #2e3344; }
+.btn-secondary { background: transparent; color: var(--slate); border: 1px solid var(--gold); }
+.btn-secondary:hover { background: var(--gold); color: white; }
+
 /* ─── Main ─── */
 main {
   width: 100%;
