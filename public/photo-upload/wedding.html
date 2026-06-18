@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Cormorant+SC:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="upload-core.css?v=3">
+  <link rel="stylesheet" href="upload-core.css?v=4">
 </head>
 <body>
 
@@ -33,6 +33,11 @@
           <button class="camera-btn" id="camera-btn-trigger">Take a Photo</button>
         </div>
         <input class="camera-input" type="file" id="camera-input" accept="image/*" capture="environment" />
+      </div>
+
+      <div class="gallery-box" id="gallery-box">
+        <h2>Recently Shared</h2>
+        <div class="gallery-grid" id="gallery-grid"></div>
       </div>
 
       <div class="qr-box">
@@ -82,7 +87,7 @@
       }
     };
   </script>
-  <script type="module" src="upload-core.js?v=2"></script>
+  <script type="module" src="upload-core.js?v=3"></script>
 
 </body>
 </html>

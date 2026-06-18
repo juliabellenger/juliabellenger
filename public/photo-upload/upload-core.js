@@ -1,5 +1,5 @@
 import { initializeApp }                          from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getStorage, ref, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+import { getStorage, ref, uploadBytesResumable, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 const { storagePrefix, firebaseConfig, successMessage } = window.UPLOAD_CONFIG;
 
@@ -131,6 +131,7 @@ async function startUpload() {
   if (failed === 0) {
     document.getElementById('upload-area').style.display = 'none';
     document.getElementById('success-screen').style.display = 'block';
+    loadGallery();
   } else {
     uploadBtn.disabled = false;
     const errBanner = document.getElementById('error-banner');
@@ -138,6 +139,54 @@ async function startUpload() {
     errBanner.textContent = `${failed} photo(s) failed to upload. Please try again.`;
   }
 }
+
+// ── Gallery ───────────────────────────────────────────────────────────────────
+const GALLERY_MAX = 16; // 4 columns × 4 rows
+
+async function loadGallery() {
+  const galleryBox  = document.getElementById('gallery-box');
+  const galleryGrid = document.getElementById('gallery-grid');
+  if (!galleryBox || !galleryGrid) return;
+
+  try {
+    const rootRef  = ref(storage, storagePrefix);
+    const rootList = await listAll(rootRef);
+
+    let allItems = [...rootList.items];
+    const subLists = await Promise.all(rootList.prefixes.map(p => listAll(p)));
+    subLists.forEach(sub => { allItems = allItems.concat(sub.items); });
+
+    if (!allItems.length) {
+      galleryBox.style.display = 'none';
+      return;
+    }
+
+    // Newest first — file names are prefixed with Date.now()
+    allItems.sort((a, b) => b.name.localeCompare(a.name));
+    const top = allItems.slice(0, GALLERY_MAX);
+
+    const urls = await Promise.all(top.map(item => getDownloadURL(item)));
+
+    galleryGrid.innerHTML = '';
+    urls.forEach(url => {
+      const tile = document.createElement('div');
+      tile.className = 'gallery-tile';
+      const img = document.createElement('img');
+      img.src = url;
+      img.loading = 'lazy';
+      img.alt = 'Shared photo';
+      tile.appendChild(img);
+      galleryGrid.appendChild(tile);
+    });
+
+    galleryBox.style.display = 'block';
+  } catch (err) {
+    console.error('Could not load gallery:', err);
+    galleryBox.style.display = 'none';
+  }
+}
+
+loadGallery();
 
 function uploadOne(file, idx) {
   return new Promise((resolve) => {
